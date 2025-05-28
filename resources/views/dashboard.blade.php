@@ -35,7 +35,7 @@
             <i class="ri-order-play-fill"></i>
             Total Categories
         </h3>
-        <p class="txt-4xl text-right font-bold">50</p>
+        <p class="txt-4xl text-right font-bold">{{ $totalcategories }}</p>
     </div>
     <div class="bg-purple-200 p-4 shadow-md-rounded-lg">
         <h3 class=font-bold text-xl">

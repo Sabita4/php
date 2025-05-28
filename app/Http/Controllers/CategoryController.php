@@ -25,7 +25,7 @@ class CategoryController extends Controller
             'name' => 'required'
         ]);
         Category::create($data);
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category Added Successfully!');
     }
     public function edit($id)
     {
@@ -40,12 +40,12 @@ class CategoryController extends Controller
         ]);
         $category = Category::find($id);
         $category->update($data);
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category Updated Successfully!');
     }
 
     public function destroy($id)
     {
         Category::find($id)->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('success', 'Category Deleted Successfully');
     }
 }

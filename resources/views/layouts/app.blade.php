@@ -20,6 +20,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    @include('layouts.alert')
     <div class="flex">
         <div class="h-screen w-52 bg-blue-100 shadow-md">
             <h2 class="text-center font bold text -xl my-5">LOGO</h2>
