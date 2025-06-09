@@ -27,7 +27,7 @@
             <div>
                 <a href="/dashboard" class="block pl-2 py-2 hover:bg-blue-300">Dashboard</a>
                 <a href="/category" class="block pl-2 py-2 hover:bg-violet-300">Categories</a>
-                <a href="" class="block pl-2 py-2 hover:bg-purple-300">Product</a>
+                <a href="/product" class="block pl-2 py-2 hover:bg-purple-300">Product</a>
                 <a href="" class="block pl-2 py-2 hover:bg-green-300">Orders</a>
                 <a href="" class="block pl-2 py-2 hover:bg-gray-300">LogOut</a>
 

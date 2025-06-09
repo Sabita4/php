@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,15 @@ Route::post('/categories/store', [CategoryController::class, 'store'])->name('ca
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::post('/categories/{id}/update', [CategoryController::class, 'update'])->name('categories.update');
 Route::get('/categories/{id}/destroy', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+//products
+Route::get('/product', [ProductController::class, 'index'])->name('products.index');
+Route::get('/product/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/product/store', [ProductController::class, 'store'])->name('products.store');
+Route::get('/product{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::post('/product/{id}/update', [ProductController::class, 'update'])->name('products.update');
+Route::get('/product/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+
 
 
 
