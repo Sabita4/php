@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Edit Product')
 @section('content')
-    <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('products.update',$product->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         <select name="category_id" id="" class="border border-gray-300 p-2 rounded-md w-full mb-3">
             @foreach($categories as $category)
-            <option value="{{$category->id}}">{{$category->name}}</option>
+            <option value="{{$category->id}}" @if($product->category_id==$category->id) selected @endif>{{$category->name}}</option>
             @endforeach
         </select>
         <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="name" placeholder="Product Name" value="{{old('name')}}" >
@@ -28,6 +28,8 @@
         @error('stock')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror
+        <p>Crrent Picture:</p>
+             <img src="{{asset('images/products/'.$product->photopath)}}" alt="Product Image" class="h-20 w-20">
         <input type="file" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="photopath" placeholder="Picture" value="{{old('photopath')}}" >
         @error('photopath')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>

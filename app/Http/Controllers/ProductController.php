@@ -26,7 +26,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required|numeric',
             'category_id' => 'required',
-            'discounted_price' => 'nullable|numeric',
+            'discounted_price' => 'nullable|numeric|lt:price',
             'description' => 'required|string',
             'stock' => 'required|numeric',
             'photopath' => 'required|image'
@@ -49,10 +49,41 @@ class ProductController extends Controller
         $product = Product::find($id);
         return view('products.edit', compact('product', 'categories'));
     }
-    public function update(Request $request, $id) {}
+    public function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+            'category_id' => 'required',
+            'discounted_price' => 'nullable|numeric|lt:price',
+            'description' => 'required|string',
+            'stock' => 'required|numeric',
+            'photopath' => 'nullable|image'
+
+        ]);
+        $product =  Product::findOrFail($id);
+        if ($request->hasFile('photopath')) {
+            $file = $request->file('photopath');
+            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/products'), $fileName);
+            $data['photopath'] = $fileName;
+
+            //unsent the old image
+            if (file_exists(public_path('images/products/' . $product->photopath))) {
+                unlink(public_path('images/products/' . $product->photopath));
+            }
+        }
+        $product->update($data);
+        return redirect()->route('products.index')->with('success', 'Product Updated Successfully');
+    }
     public function destroy($id)
     {
-        $product = Product::find($id)->delete();
+        $product = Product::findOrFail($id);
+        //unlink the image
+        if (file_exists(public_path('images/products/' . $product->photopath))) {
+            unlink(public_path('images/products/' . $product->photopath));
+        }
+        $product->delete();
         return redirect()->route('products.index')->with('success', 'Product Deleted Succesfully');
     }
 }
