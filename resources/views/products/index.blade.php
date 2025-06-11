@@ -20,7 +20,7 @@
             <td class="p-2 border border-gray-100">
                 <img src="{{asset('images/products/'.$product->photopath)}}" alt="" class="h-16">
             </td>
-            <td class="p-2 border border-gray-100">{{$product->photopath}}</td>
+            <td class="p-2 border border-gray-100">{{$product->name}}</td>
             <td class="p-2 border border-gray-100">{{$product->price}}</td>
             <td class="p-2 border border-gray-100">{{$product->discounted_price ?? '--'}}</td>
             <td class="p-2 border border-gray-100">{{$product->description}}</td>

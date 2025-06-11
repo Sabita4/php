@@ -8,11 +8,11 @@
             <option value="{{$category->id}}" @if($product->category_id==$category->id) selected @endif>{{$category->name}}</option>
             @endforeach
         </select>
-        <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="name" placeholder="Product Name" value="{{old('name')}}" >
+        <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="name" placeholder="Product Name" value="{{$product->name}}" >
         @error('name')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror
-        <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="price" placeholder="Price" value="{{old('price')}}" >
+        <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="price" placeholder="Price" value="{{$product->price}}" >
         @error('price')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror

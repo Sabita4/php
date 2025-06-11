@@ -29,7 +29,10 @@
                 <a href="/category" class="block pl-2 py-2 hover:bg-violet-300">Categories</a>
                 <a href="/product" class="block pl-2 py-2 hover:bg-purple-300">Product</a>
                 <a href="" class="block pl-2 py-2 hover:bg-green-300">Orders</a>
-                <a href="" class="block pl-2 py-2 hover:bg-gray-300">LogOut</a>
+                <form action = "{{route('logout')}}"class="block pl-2 py-2 hover:bg-gray-300" method = "POST">
+                    @csrf
+                    <button type= "submit" class="w-full text-left">Logout</button>
+                </form>
 
             </div>
         </div>

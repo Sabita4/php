@@ -9,12 +9,16 @@
 </head>
 
 <body>
+    @php
+    $categories = \App\Models\Category::orderBy('order','asc')->get();
+    @endphp
     <nav class="flex justify-between items-center py-3 px-12 bg-blue-800 text-white">
         <h1 class="font-bold text-lg">LOGO</h1>
         <div class="flex gap-3">
             <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+           @foreach ($categories as $category )
+           <a href="">{{$category->name}}</a>
+           @endforeach
             <a href="">Login</a>
 
 

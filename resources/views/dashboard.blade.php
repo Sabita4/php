@@ -37,6 +37,13 @@
         </h3>
         <p class="txt-4xl text-right font-bold">{{ $totalcategories }}</p>
     </div>
+    <div class="bg-violet-200 p-4 shadow-md-rounded-lg">
+        <h3 class=font-bold text-xl">
+            <i class="ri-order-play-fill"></i>
+            Total Products
+        </h3>
+        <p class="txt-4xl text-right font-bold">{{ $totalproducts }}</p>
+    </div>
     <div class="bg-purple-200 p-4 shadow-md-rounded-lg">
         <h3 class=font-bold text-xl">
             <i class="ri-shopping-cart-line"></i>
