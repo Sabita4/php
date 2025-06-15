@@ -13,26 +13,28 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [PagesController::class, 'home']);
-Route::get('/about', [PagesController::class, 'about']);
+Route::get('/viewproduct/{id}', [PagesController::class, 'viewproduct'])->name('viewproduct');
 Route::get('/services', [PagesController::class, 'services']);
 Route::get('/contact', [PagesController::class, 'contact']);
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
 
-Route::get('/category', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
-Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-Route::post('/categories/{id}/update', [CategoryController::class, 'update'])->name('categories.update');
-Route::get('/categories/{id}/destroy', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::get('/category', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+    Route::post('/categories/{id}/update', [CategoryController::class, 'update'])->name('categories.update');
+    Route::get('/categories/{id}/destroy', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
-//products
-Route::get('/product', [ProductController::class, 'index'])->name('products.index');
-Route::get('/product/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/product/store', [ProductController::class, 'store'])->name('products.store');
-Route::get('/product{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::post('/product/{id}/update', [ProductController::class, 'update'])->name('products.update');
-Route::get('/product/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+    //products
+    Route::get('/product', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/product/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/product/store', [ProductController::class, 'store'])->name('products.store');
+    Route::get('/product{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+    Route::post('/product/{id}/update', [ProductController::class, 'update'])->name('products.update');
+    Route::get('/product/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+});
 
 
 
