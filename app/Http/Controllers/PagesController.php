@@ -12,13 +12,9 @@ class PagesController extends Controller
         $latestproducts = Product::latest()->take(4)->get();
         return view('welcome', compact('latestproducts'));
     }
-    public function about()
+    public function viewproduct($id)
     {
-
-        return view('about');
-    }
-    public function contact()
-    {
-        return view('contact');
+        $product = Product::findOrFail($id);
+        return view('viewproduct', compact('product'));
     }
 }
