@@ -16,15 +16,15 @@
         @error('price')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror
-        <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="discounted_price" placeholder="Discounted Price" value="{{old('discounted_price')}}" >
+        <input type="text" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="discounted_price" placeholder="Discounted Price" value="{{$product->discounted_price}}" >
         @error('discounted_price')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror
-        <textarea class="border border-gray-300 p-2 rounded-md w-full mb-3" name="description" placeholder="Description">{{old('description')}}</textarea>
+        <textarea class="border border-gray-300 p-2 rounded-md w-full mb-3" name="description" placeholder="Description">{{$product->description}}</textarea>
         @error('description')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror
-        <input type="number" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="stock" placeholder="Stock" value="{{old('stock')}}" >
+        <input type="number" class="border border-gray-300 p-2 rounded-md w-full mb-3" name="stock" placeholder="Stock" value="{{$product->stock}}" >
         @error('stock')
             <div class="text-red-500 mb-3 -mt-3">{{$message}}</div>
         @enderror

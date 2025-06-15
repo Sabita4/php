@@ -33,4 +33,13 @@
         </tr>
         @endforeach
     </table>
+
+<div class="center">
+    <style>
+        .w-5.h-5{
+          width:10px;  
+        }
+    </style>
+    {{ $products->links() }}
+</div>
 @endsection
