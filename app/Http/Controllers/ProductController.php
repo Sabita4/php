@@ -14,9 +14,11 @@ class ProductController extends Controller
         $products = Product::paginate(4);
         return view('products.index', compact('products'));
     }
+
     public function create()
     {
         $categories = Category::orderBy('order', 'asc')->get();
+
         return view('products.create', compact('categories'));
     }
     public function store(Request $request)
